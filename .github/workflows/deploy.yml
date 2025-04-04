@@ -2,10 +2,14 @@ name: Build and Deploy LaTeX PDF
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - '**.tex'
+      - '**.bib'
+      - '**.sty'
+      - '**.otf'
+      - '**.png'
+      - '**.jpg'
   workflow_dispatch:
 
 jobs:
@@ -16,13 +20,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install LaTeX
+      - name: Install LaTeX (with XeLaTeX support)
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+          sudo apt-get install -y texlive-xetex \
+                                  texlive-fonts-recommended \
+                                  texlive-latex-extra \
+                                  texlive-bibtex-extra \
+                                  fonts-freefont-otf \
+                                  texlive-lang-cyrillic
 
-      - name: Compile LaTeX to PDF
-        run: pdflatex main.tex
+      - name: Install custom fonts (.otf)
+        run: |
+          mkdir -p ~/.fonts
+          cp *.otf ~/.fonts/ || true
+          fc-cache -f -v
+
+      - name: Compile LaTeX to PDF using XeLaTeX
+        run: |
+          xelatex -interaction=nonstopmode -halt-on-error main.tex
+          if [ -f "main.bib" ]; then
+            bibtex main
+            xelatex -interaction=nonstopmode -halt-on-error main.tex
+          fi
+          xelatex -interaction=nonstopmode -halt-on-error main.tex
 
       - name: Move PDF to publish folder
         run: |
@@ -33,5 +54,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./publish
           publish_branch: gh-pages
+          publish_dir: ./publish
