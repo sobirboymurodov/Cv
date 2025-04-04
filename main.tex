@@ -1,0 +1,168 @@
+\documentclass[a4paper,10pt]{article}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec} 					%for loading fonts
+
+\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} 				%better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} 				%for Grades
+\usepackage{titlesec}					%custom \section
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+%-------------WATERMARK TEST [**not part of a CV**]---------------
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+%WATERMARK TEST [**not part of a CV**]---------------
+%\font\wm=''Baskerville:color=787878'' at 8pt
+%\font\wmweb=''Baskerville:color=FF1493'' at 8pt
+%{\wm 
+%	\begin{textblock}{1}(0,0)
+%		\rotatebox{-90}{\parbox{500mm}{
+%			Typeset by Alessandro Plasmati with \XeTeX\  \today\ for 
+%			{\wmweb \href{http://www.aleplasmati.comuv.com}{aleplasmati.comuv.com}}
+%		}
+%	}
+%	\end{textblock}
+%}
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+		{\Huge   \textsc{Boymurodov Sobir}
+	}\bigskip\par}
+
+%--------------------SECTIONS-----------------------------------
+%Section: Personal Data
+
+\section{Personal Information}
+
+\begin{tabular}{rl}
+    \textsc{Date of birth:} & 31.12.1998 \\
+     \textsc{Nationality:} & Uzbek \\
+    \textsc{Adrress:}   & V.I.Romanovskiy institute of mathematics of Uzbek academy sciences,\\
+    \textsc{}   & Olmazor district, University street, house 9, Tashkent, Uzbekistan \\
+    \textsc{Mobile:}     &+998973075586\\
+    \textsc{email:}     & \href{mailto:sboymurodov.research@gmail.com}{sboymurodov.research@gmail.com}  ,  \href{mailto:sobir.boymurodov@nuu.uz}{sobir.boymurodov@nuu.uz} \\
+
+    
+\end{tabular}
+
+%Section: Work Experience at the top
+\section{Expertise and research interests}
+
+ \emph{Holomorphic dynamics, complex analysis, pluripotential theory, ergodic theory and dynamical systems}  
+
+
+\section{Academic positions}
+\begin{tabular}{r|p{11cm}}
+ \textsc{09/2023-}  &\textbf{Associate  teacher}, National university of Uzbekistan
+\end{tabular}
+\section{Education}
+\begin{tabular}{r|p{11cm}}	
+ \textsc{2025-} & \textbf{PhD student}, V.I.Romanovskiy institute of mathematics, Uzbekistan\\ 
+ \textsc{ } & Thesis  \emph{Dynamical properties of Horizontal-like  maps} \\
+\textsc{} &  Supervisors: Prof. K. Rakhimov\\ \\
+\textsc{2021-2023} &\textbf{MSc in Mathematics}, National University of Uzbeksistan\\
+ & 
+Thesis Dynamical stability in several complex variables\\ &
+Defended on June 27th, 2023\\ & Supervisor: Acad.  A. Sadullayev and prof. K. Rakhimov
+\\ \\  \textsc{2017-2021}& \textbf{Bachelor of Science in Mathematics}, Bukhara State University,\\ & Uzbekistan
+\end{tabular}
+%Section: Scholarships and additional info
+
+
+
+\section{Awards}
+\begin{tabular}{rl}
+ \textsc{2020:}  &  International mathematical competations for University students\\
+ &(IMC-2020) Bulgaria, Second Prise\\
+
+ \textsc{2022:}  & Siberian Math Competition, Third Place\\
+    
+\end{tabular}
+
+
+%Section: Languages
+\section{Languages}
+\begin{tabular}{rl}
+\textsc{Uzbek:}& Native language 
+%\textsc{Tadjik:}& C1 Level \\
+ \\ \textsc{English:}& B2 Level 
+ 
+\end{tabular}
+
+\section{Publications}
+\subsection*{\it{Published papers}}
+\begin{enumerate}
+\item \emph{Holomorphic motion of Julia sets of polynomial-like maps, and continuity of compact sets and their Green functions}, Bulletin of National University of Uzbekistan: Mathematics and Natural Sciences, Volume 6, Issue 4,2023. (with Bazarbaev Sardor)
+\end{enumerate}
+\subsection*{\it{Thesis}}
+\begin{enumerate}
+
+\item (with Bazarbaev S.U.) \emph{Large entropy measures of Henon-like
+maps}, Modern Probl. of Appl. Math. and Inform. Techn. –Al-Khwarizmi 2024.
+\item (with Bazarbaev S.U.) \emph{Continuity of green functions of
+hausdorff continuous regular sets on the parameter space}, Proceedings of the Republican Scientific-Theoretical Conference on Current Issues of Distance Learning in Exact and Natural Science\\  (Nukus, April 12-13, 2023).
+\item (with Jalilov. O) \emph{Lyapunov eksponentalari},  "Current Issues in Algebra and Analysis", Termez-2022, Uzbekistan.
+\end{enumerate}
+\section{Teaching and tutoring }
+\begin{tabular}{r|p{11cm}}
+2023-2025 & National University of Uzbekistan\\ 
+& - \emph{The selected chapters of the analysis}, four year, Mathematics  degree
+\\
+& - \emph{Complex analysis}, third year, Mathematics degree\\
+& - \emph{Non-standard Issues in Analysis}, third year, Mathematics degree
+\\ & - \emph{Mathematical analysis}, second year, Mathematics  degree
+\\ & - \emph{Mathematical analysis}, first year, Mathematics  degree
+\end{tabular}
+
+\section*{Participation in Conferences}
+\begin{tabular}{r|p{13cm}}
+2024& Modern problems of applied mathematics and information technologies\\ & Al-Khwarizmi. National university of Uzbekistan,22-23 october, Tashkent.
+\end{tabular}
+\section*{School and Workshops}
+\begin{tabular}{r|p{11cm}}
+2024 & \emph{School and Workshop on Dynamical Systems}, 22 July-09 August,\\ & ICTP, Trieste, Italy
+\end{tabular}
+Salom Sobir
+\end{document}
